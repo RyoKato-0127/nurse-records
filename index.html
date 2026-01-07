@@ -1034,19 +1034,13 @@
       return date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日';
     }
 
-    function copyToClipboard() {
-      const visitDate = document.getElementById('visitDate').value;
-      const patientName = document.getElementById('patientName').value;
-      const jobType = document.getElementById('jobType').value;
-      const recorderName = document.getElementById('recorderName').value;
-      const record = document.getElementById('editableRecord').value;
-      
-      const fullRecord = '【訪問日】' + formatDisplayDate(visitDate) + '\n【利用者】' + patientName + '\n【職種】' + jobType + '\n【記録者】' + recorderName + '\n\n' + record;
-      
-      navigator.clipboard.writeText(fullRecord).then(function() {
-        showToast('コピーしました');
-      });
-    }
+ function copyToClipboard() {
+  const record = document.getElementById('editableRecord').value;
+  
+  navigator.clipboard.writeText(record).then(function() {
+    showToast('コピーしました');
+  });
+}
 
     function goBack() {
       document.getElementById('step-input').classList.remove('hidden');
